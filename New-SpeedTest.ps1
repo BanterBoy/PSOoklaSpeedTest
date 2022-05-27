@@ -3,7 +3,7 @@ function New-SpeedTest {
 		.SYNOPSIS
 			The New-SpeedTest function is a wrapper for the the official command line client from Speedtest by Ookla for testing the speed and performance of your internet connection.
 			
-				Usage: speedtest [<options>]
+				Usage:
 				-L, --servers                     List nearest servers
 				-s, --server-id=#                 Specify a server from the server list using its id
 				-I, --interface=ARG               Attempt to bind to the specified interface when connecting to servers
@@ -168,8 +168,8 @@ function New-SpeedTest {
                         Write-Output $obj
                     }
                 }
-                elseif ($Cli) {
-                    if ($progress) {
+                elseif ($Cli -eq $true) {
+                    if ($progress -eq $true) {
                         & $PSScriptRoot\speedtest.exe --accept-license --accept-gdpr --progress=yes
                     }
                     else {
